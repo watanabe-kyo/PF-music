@@ -1,0 +1,40 @@
+<div class="container">
+<table class="table">
+    <thead>
+        <tr>
+            <th>アルバム画像</th>
+            <th>曲名</th>
+            <th>アーティスト名</th>
+            <th>リリース日</th>
+            <th>My Music</th>
+        </tr>
+    </thead>
+    <tbody>
+            <% @searchs.each do |search| %>
+        <tr>
+                <td><%= search['collectionName'] %></td>
+                <td><%= search['trackName'] %></td>
+                <td><%= search['artistName'] %></td>
+                <td><%= search['releaseDate'] %></td>
+                <td>
+                    <iframe allow="encrypted-media *; fullscreen *" frameborder="0" width="60"  style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src=<%= search['artistViewUrl'] %>></iframe>
+                    <!--<iframe allow="autoplay *; encrypted-media *; fullscreen *" frameborder="0" height="150" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/%E3%82%A2%E3%82%B2%E3%83%8F%E8%9D%B6/1537264857?i=738245252"></iframe>-->
+                    <%# binding.pry %>
+                    <%# if search.favorited_by?(current_end_user) %>
+                        <%#= form_with model: @favorite, url: music_favorite_path(search),local: true, method: :post do |favorite| %>
+                            <%#= favorite.hidden_field :track_id, value: search['trackId'] %>
+                            <%#= favorite.submit 'いいね！解除' %>
+                        <%# end %>
+                    <%# else %>
+                        <%#= form_with model: @favorite, url: music_favorite_path(search), local: true, method: :delete do |favorite| %>
+                            <%#= favorite.hidden_field :track_id, value: search['trackId'] %>
+                            <%#= favorite.submit 'いいね！' %>
+                        <%# end %>
+                    <%# end %>
+                </td>
+        </tr>
+            <% end %>
+    </tbody>
+</table>
+</div>
+
