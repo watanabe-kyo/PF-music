@@ -1,6 +1,7 @@
-class CreateFavorites < ActiveRecord::Migration[5.2]
+class CreateMylists < ActiveRecord::Migration[5.2]
   def change
-    create_table :favorites do |t|
+    create_table :mylists do |t|
+
       t.integer :end_user_id
       t.integer :track_id
 
