@@ -10,7 +10,7 @@ class EndUsers::TracksController < ApplicationController
             :country => 'jp',
             :media   => 'music',
             :lang    => 'ja_jp',
-            :limit  => '1'
+            :limit  => '10'
             ).each do |item|
             p item
             print("#{item['artistName']},#{item['trackName']}\n")
