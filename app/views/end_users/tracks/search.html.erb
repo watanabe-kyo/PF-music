@@ -1,32 +1,36 @@
 <% require 'itunes-search-api' %>
 
 <div class="container">
-<table class="table">
+<%= paginate @searchs %>
+
+<table class="table", border="0" width="100%" style="table-layout: fixed;">
     <thead>
         <tr>
-            <th>アルバム名</th>
-            <th>曲名</th>
-            <th>アーティスト名</th>
-            <th>リリース日</th>
-            <th>試聴</th>
-            <th>My Music</th>
+            <th width="15%">アルバム名</th>
+            <th width="20%">曲名</th>
+            <th width="20%">アーティスト名</th>
+            <th width="25%">試聴</th>
+            <th width="5%">My Music</th>
+            <%= current_end_user.name %>
         </tr>
     </thead>
     <tbody>
         <% @searchs.each do |track| %>
+
         <tr>
                 <td><%= track['collectionName'] %></td>
                 <td><%= track['trackName'] %></td>
                 <td><%= track['artistName'] %></td>
-                <td><%= track['releaseDate'] %></td>
                 <td>
                     <iframe allow="autoplay *; encrypted-media *; fullscreen *" frameborder="0" height="150" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/%E7%82%8E/<%= track['collectionId'] %>?i=<%= track['trackId'] %>"></iframe>
                 </td>
                 <td>
-                    <%= link_to "詳細", track_path(track['collectionId'], track['trackId']) %>
+                    <%#= link_to "詳細", track_path(track['collectionId'], track['trackId']), class:"text-dark" %>
                 </td>
         </tr>
         <% end %>
     </tbody>
 </table>
+<%= paginate @searchs, class:"text-dark" %>
+
 </div>

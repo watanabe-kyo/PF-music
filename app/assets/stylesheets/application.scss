@@ -14,7 +14,18 @@
  *= require_self
  */
  @import "bootstrap";
- 
+
+
+ .container {
+    font-family: "Ravi Prakash", cursive;
+ }
+ .sticky-top {
+   font-family: "Ravi Prakash", cursive;
+ }
  .ml-90vw {
      margin-left: 90vw;
+ }
+
+ .color {
+ 	background-color: tan;
  }
