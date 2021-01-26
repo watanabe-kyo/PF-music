@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     post 'tracks/:collection_id/:track_id/mylists', to: 'mylists#create', as: "new_mylist"
     delete 'tracks/:collection_id/:track_id/mylists', to: 'mylists#destroy', as: "destroy_mylist"
     get '/mylists', to: 'mylists#index', as: "mylists"
+    resources :end_users
   end
  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,7 +1,11 @@
 module EndUsers::SessionsHelper
   # 渡されたユーザーでログインする
   def log_in(end_user)
-    session[:uid] = end_user.uid
+    if end_user.uid
+      session[:uid] = end_user.uid
+    else
+      session[:uid] = end_user.id
+    end
   end
 
   # 現在ログイン中のユーザーを返す (いる場合)
