@@ -1,2 +1,26 @@
 <div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<table class="table table-hover">
+						<tr>
+							<td><%= @end_user.name %></td>
+						</tr>
+						<tr>
+							<td><%= @end_user.birth_date %></td>
+						</tr>
+						<tr>
+							<td><%= link_to mylist_path(@end_user), class: "text-dark" do %>
+									<%= @end_user.name %>のMyListをみる
+								<% end %>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<%= link_to "プロフィール編集", edit_end_user_registration_path %>
+							</td>
+						</tr>
+						</ul>
+			</table>
+		</div>
+	</div>
 </div>

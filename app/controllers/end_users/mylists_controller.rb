@@ -14,7 +14,8 @@ class EndUsers::MylistsController < ApplicationController
         redirect_to request.referer
     end 
     
-    def index
-        @mylists = Mylist.where(end_user_id: current_end_user.id)
+    def show
+        @mylists = Mylist.where(end_user_id: params[:id])
+        @end_user = EndUser.find(params[:id])
     end
 end
