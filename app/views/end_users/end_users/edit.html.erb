@@ -1,0 +1,8 @@
+<div class="container">
+	<%= form_with model: @end_user, method: :post do |end_user| %>
+		<%= end_user.label :name %>
+		<%= end_user.text_field :name %>
+		<%= end_user.label :email %>
+		<%= end_user.email_field
+	<% end %>
+</div>
