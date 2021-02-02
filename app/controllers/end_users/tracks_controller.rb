@@ -18,7 +18,6 @@ class EndUsers::TracksController < ApplicationController
         @searchs = Kaminari.paginate_array(@searchs).page(params[:page]).per(15)
 
 
-        binding.pry
 
     end
 

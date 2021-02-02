@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     }
     root to: "home#top"
     get "/about" => "home#about"
-    get '/auth/:provider/callback', to: 'twitters#create', as: "twitter_login_end_user"
+    get '/auth/:provider/callback', to: 'twitters#create'
     get '/logout', to: 'twitters#destroy'
     get 'tracks/search'
     get 'tracks/:collection_id/:track_id', to: 'tracks#show', as: "track"
