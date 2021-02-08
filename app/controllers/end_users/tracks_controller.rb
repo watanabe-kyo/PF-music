@@ -1,6 +1,6 @@
 class EndUsers::TracksController < ApplicationController
-        require 'itunes-search-api'
-        require 'kaminari'
+    require 'itunes-search-api'
+    require 'kaminari'
 
     def search
         @tracks = ITunesSearchAPI

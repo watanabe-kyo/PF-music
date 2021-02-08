@@ -9,6 +9,9 @@
 							<td><%= @end_user.birth_date %></td>
 						</tr>
 						<tr>
+							<td class="follow-button"><%= render 'end_users/relationships/follow', end_user: @end_user %></td>
+						</tr>
+						<tr>
 							<td><%= link_to mylist_path(@end_user), class: "text-dark" do %>
 									<%= @end_user.name %>のMyListをみる
 								<% end %>
@@ -16,7 +19,7 @@
 						</tr>
 						<tr>
 							<td>
-								<%= link_to "プロフィール編集", edit_end_user_registration_path %>
+								<%= link_to "プロフィール編集", edit_end_user_registration_path, class: "text-dark" %>
 							</td>
 						</tr>
 						</ul>
