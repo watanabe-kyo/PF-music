@@ -1,1 +1,2 @@
-$('.track_list').html('<%= j(render partial: 'mylists/list', locals: { mylist: @mylist, list: @list  }) %>');
+$('.my_list').html('<%= j(render partial: 'end_users/mylists/list', locals: { mylist: @mylist, list: @list  }) %>');
+$('.track_list').html('<%= j(render partial: 'end_users/tracks/list', locals: {mylist: @mylist, list: @list }) %>');

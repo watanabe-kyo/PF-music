@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
 
     def after_sign_in_path_for(resource)
-    	logger.debug(current_end_user.to_yaml)
+    	# logger.debug(current_end_user.to_yaml)
     	root_path
     end
 

@@ -29,7 +29,7 @@
 
 
             <li class="nav-item"> <%= link_to "MY LIST", mylist_path(current_end_user), class:"btn btn-outline-warning" %> </li>
-            <li class="nav-item"><p class="text-light ml-10vw width-20vw"><b>ようこそ、<%= current_end_user.nickname %>さん！</b></p> 
+            <li class="nav-item"><p class="text-light ml-10vw width-20vw"><b>ようこそ、<%= current_end_user.nickname %>さん！</b></p></li>
         </ul>
       	<%= form_with url: tracks_search_path, method: :get, local: true do |search| %>
       	  <%= search.text_field :term, class:"border border-warning rounded" %>
@@ -41,8 +41,12 @@
             <li class="nav-item"> <%= link_to "ABOUT", about_path, class:"btn btn-outline-warning" %> </li>
             <li class="nav-item"> <%= link_to "SIGN UP", new_end_user_registration_path, class:"btn btn-outline-warning" %> </li>
             <li class="nav-item"> <%= link_to "LOG IN", new_end_user_session_path, class:"btn btn-outline-warning" %> </li>
-            <li class="nav-item"> <%= link_to "Twitterでログイン", "/auth/twitter", class:"btn btn-outline-warning" %> </li>
+            <li class="nav-item"> <%= link_to "Twitterでログイン", "/auth/twitter", class:"btn btn-outline-warning" %></li>
         </ul>
+        <%= form_with url: tracks_search_path, method: :get, local: true do |search| %>
+          <%= search.text_field :term, class:"border border-warning rounded" %>
+          <%= search.submit :search, class:"btn btn-outline-warning" %>
+        <% end %>
       <% end %>
     </div>
     </header>

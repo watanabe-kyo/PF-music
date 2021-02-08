@@ -2,6 +2,6 @@
 <% else %>
     <%= form_with model:list, url:destroy_mylist_path(list.collection_id, list.track_id), method: :delete, remote: true do |mylist| %>
 
-        <%= mylist.submit 'MyListからはずす' %>
+        <%= mylist.submit 'MyListからはずす', class: "btn btn-outline-dark" %>
     <% end %>
 <% end %>
