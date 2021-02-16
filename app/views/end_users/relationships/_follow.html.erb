@@ -2,12 +2,12 @@
 	<% if current_end_user.following?(end_user) %>
 		<%= form_with model:@follower, method: :delete, local: true do |follow| %>
 			<%= follow.hidden_field :follow_id, value: end_user.id %>
-			<%= follow.submit 'Unfollow', class: 'btn btn-outline-danger' %>
+			<%= follow.submit 'フォローを外す', class: 'btn btn-outline-danger' %>
 		<% end %>
 	<% else %>
 		<%= form_with model: current_end_user.relationships.build, local: true do |follow| %>
 			<%= follow.hidden_field :follow_id, value: end_user.id %>
-			<%= follow.submit 'Follow', class: 'btn btn-outline-dark' %>
+			<%= follow.submit 'フォロー', class: 'btn btn-outline-dark' %>
 		<% end %>
 	<% end %>
 <% end %>

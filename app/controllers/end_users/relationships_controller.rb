@@ -5,10 +5,10 @@ class EndUsers::RelationshipsController < ApplicationController
 		following = current_end_user.follow(@end_user)
 		if following.save
 			flash[:success] = 'ユーザーをフォローしました！'
-			redirect_to @end_user
+			redirect_to request.referer
 		else
 			flash.now[:alert] = 'ユーザーのフォローに失敗しました…。'
-			redirect_to @end_user
+			redirect_to request.referer
 		end
 	end
 
@@ -17,10 +17,10 @@ class EndUsers::RelationshipsController < ApplicationController
 		following = current_end_user.unfollow(@end_user)
 		if following.destroy
 			flash[:success] = 'ユーザーのフォローを解除しました。'
-			redirect_to @end_user
+			redirect_to request.referer
 		else
 			flash.now[:alert] = 'ユーザーのフォロー解除に失敗しました…。'
-			redirect_to @end_user
+			redirect_to request.referer
 		end
 	end
 
