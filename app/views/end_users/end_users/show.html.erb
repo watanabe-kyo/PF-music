@@ -8,9 +8,11 @@
 						<tr>
 							<td><%= @end_user.birth_date %></td>
 						</tr>
+						<% if @end_user != current_end_user %>
 						<tr>
 							<td class="follow-button"><%= render 'end_users/relationships/follow', end_user: @end_user %></td>
 						</tr>
+						<% end %>
 						<tr>
 							<td>
 								<%= link_to following_end_user_path(@end_user), class: "text-dark	" do %>
@@ -25,7 +27,11 @@
 						</tr>
 						<tr>
 							<td><%= link_to mylist_path(@end_user), class: "text-dark" do %>
-									<%= @end_user.name %>のMyListをみる
+									<% if @end_user == current_end_user %>
+										<p>Mylistを見る</p>
+									<% else %>
+										<%= @end_user.name %>のMyListをみる
+									<% end %>
 								<% end %>
 							</td>
 						</tr>
