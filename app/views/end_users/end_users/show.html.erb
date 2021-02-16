@@ -12,6 +12,18 @@
 							<td class="follow-button"><%= render 'end_users/relationships/follow', end_user: @end_user %></td>
 						</tr>
 						<tr>
+							<td>
+								<%= link_to following_end_user_path(@end_user), class: "text-dark	" do %>
+									フォロー数 <%= @end_user.followings.count %>人
+								<% end %>
+							</td>
+							<td>
+								<%= link_to follower_end_user_path(@end_user), class: "text-dark" do %>
+									フォロワー数 <%= @end_user.followers.count %>人
+								<% end %>
+							</td>
+						</tr>
+						<tr>
 							<td><%= link_to mylist_path(@end_user), class: "text-dark" do %>
 									<%= @end_user.name %>のMyListをみる
 								<% end %>
