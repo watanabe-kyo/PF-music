@@ -18,8 +18,7 @@ ActiveRecord::Schema.define(version: 2021_02_04_035338) do
     t.text "introduction"
     t.string "telephone_number"
     t.string "nickname"
-    t.date "birth_date"
-    t.integer "sex"
+    t.string "sex"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -31,8 +30,6 @@ ActiveRecord::Schema.define(version: 2021_02_04_035338) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "uid"
-    t.string "image"
     t.index ["confirmation_token"], name: "index_end_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_end_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true

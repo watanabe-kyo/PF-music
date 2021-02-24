@@ -9,7 +9,7 @@ class DeviseCreateEndUsers < ActiveRecord::Migration[5.2]
       t.text :introduction
       t.string :telephone_number
       t.string :nickname
-      t.date :birth_date
+      # t.date :birth_date, using: "birth_date::date"
       t.string :sex
 
       t.string :email,              null: false, default: ""
