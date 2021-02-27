@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_04_035338) do
+ActiveRecord::Schema.define(version: 2021_02_26_050250) do
 
   create_table "end_users", force: :cascade do |t|
     t.string "name"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_02_04_035338) do
     t.string "telephone_number"
     t.string "nickname"
     t.date "birth_date"
-    t.integer "sex"
+    t.string "sex"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -31,8 +31,7 @@ ActiveRecord::Schema.define(version: 2021_02_04_035338) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "uid"
-    t.string "image"
+    t.string "mysinger"
     t.index ["confirmation_token"], name: "index_end_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_end_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true
@@ -44,6 +43,13 @@ ActiveRecord::Schema.define(version: 2021_02_04_035338) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "collection_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "tweet"
+    t.integer "end_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "relationships", force: :cascade do |t|

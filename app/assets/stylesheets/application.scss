@@ -32,5 +32,9 @@
  }
 
  .color {
- 	background-color: tan;
+ 	background: linear-gradient(to right, #8b4513 0%, #8b4513 28%, #d2b48c 28%, #d2b48c 100%);
+ }
+
+ .overflow-wrap {
+ 	overflow-wrap: normal;
  }

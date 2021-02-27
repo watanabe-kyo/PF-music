@@ -14,6 +14,7 @@ class EndUser < ApplicationRecord
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
   has_many :followers, through: :reverse_of_relationships, source: :end_user
+  has_many :posts
 
   def follow(other_end_user)
     unless self == other_end_user # フォローする対象が自分じゃない時
@@ -29,4 +30,12 @@ class EndUser < ApplicationRecord
   def following?(other_end_user)
     self.followings.include?(other_end_user) #
   end
+
+  def self.search(search)
+      if search
+        EndUser.where(['content LIKE ?', "%#{search}%"])
+      else
+        EndUser.all
+      end
+    end
 end

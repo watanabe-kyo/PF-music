@@ -14,14 +14,16 @@ Rails.application.routes.draw do
     post 'tracks/:collection_id/:track_id/mylists', to: 'mylists#create', as: "new_mylist"
     delete 'tracks/:collection_id/:track_id/mylists', to: 'mylists#destroy', as: "destroy_mylist"
     resources :mylists, only:[:show]
-    resources :end_users, only:[:show] do
+    resources :end_users, only:[:show, :edit, :update, :index] do
         member do
             get :following
             get :follower
         end
+        get :search, on: :collection
     end
     resources :relationships, only: [:create, :destroy]
     get '/deactivate' => "end_users#deactivate"
+    resources :posts, only: [:create, :dsetroy, :show, :index]
   end
  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
