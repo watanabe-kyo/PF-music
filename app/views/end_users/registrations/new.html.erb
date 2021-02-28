@@ -29,52 +29,51 @@
       </div>
       
       <div class="field">
-        <%= f.label :nickname, "ニックネーム（ほかのユーザーに公開されます）" %><br />
+        <%= f.label :nickname, "ニックネーム" %><span class="text-light">（ほかのユーザーに公開されます）</span><br />
         <%= f.text_field :nickname, autocomplete: "ニックネーム", class:"rounded" %>
       </div>
       
       <div class="field">
-        <%= f.label :birth_date, "生年月日（13歳未満の方は利用できません。）" %><br />
+        <%= f.label :birth_date, "生年月日（13歳未満の方は利用できません。）", class:"text-light" %><br />
         <%= f.date_select :birth_date, use_month_numbers: true,start_year: 1900, end_year: (Time.now.year - 13), default: Date.new(2000, 1, 1) %>
       </div>
       <div class="field">
-        <%= f.label :sex, "性別" %><br />
-        <%= f.label :male, "男性" %>
+        <%= f.label :sex, "性別", class:"text-light" %><br />
+        <%= f.label :male, "男性", class:"text-light" %>
         <%= f.radio_button :sex, :male %>
-        <%= f.label :female, "女性" %>
+        <%= f.label :female, "女性", class:"text-light" %>
         <%= f.radio_button :sex, :female %>
-        <%= f.label :other, "その他" %>
+        <%= f.label :other, "その他", class:"text-light" %>
         <%= f.radio_button :sex, :other %>
       </div>
       
     
       <div class="field">
-        <%= f.label :password, "パスワード" %>
+        <%= f.label :password, "パスワード", class:"text-light" %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %>字以上)</em>
+        <em class="text-light">(<%= @minimum_password_length %>字以上)</em>
         <% end %><br />
         <%= f.password_field :password, autocomplete: "new-password", class:"rounded" %>
       </div>
     
       <div class="field">
-        <%= f.label :password_confirmation, "パスワード（確認）" %><br />
+        <%= f.label :password_confirmation, "パスワード（確認）", class:"text-light" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"rounded" %>
       </div>
       <br>
     
       <div class="actions">
-        <%= f.submit "MyMusicを始める！", class:"btn btn-outline-danger" %>
-      </div>
+        <%= f.submit "MyMusicを始める！", class:"btn btn-danger" %>
+
       <br>
     <% end %>
-      <div class="actions">
-        <%= link_to "Twitterでログイン", "/auth/twitter", class:"btn btn-outline-primary" %>
-      </div>
-      <br>
+
+        <%= link_to "Twitterでログイン", "/auth/twitter", class:"btn btn-primary" %>
+
     <%= render "end_users/shared/links" %>
-    </div>
+      </div>    </div>
   </div>
 </div>
-<br><br><br><br><br><br>
+
 
 

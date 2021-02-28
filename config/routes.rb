@@ -6,6 +6,7 @@ Rails.application.routes.draw do
         passwords: 'end_users/passwords'
     }
     root to: "home#top"
+
     get "/about" => "home#about"
     get '/auth/:provider/callback', to: 'twitters#create'
     get '/logout', to: 'twitters#destroy'
