@@ -1,2 +1,0 @@
-module EndUsers::RelationshipsHelper
-end
