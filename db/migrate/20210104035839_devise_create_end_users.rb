@@ -10,7 +10,7 @@ class DeviseCreateEndUsers < ActiveRecord::Migration[5.2]
       t.string :telephone_number
       t.string :nickname
       t.date :birth_date
-      t.string :sex
+      t.integer :sex
 
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
