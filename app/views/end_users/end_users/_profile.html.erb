@@ -9,7 +9,7 @@
 			</tr>
 			<tr>
 				<th>
-					<% if current_end_user.mysinger != "未登録" %>
+					<% if current_end_user.mysinger != nil %>
 						<span class="text-light">
 							<%= current_end_user.mysinger %>
 						</span>

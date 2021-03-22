@@ -10,7 +10,7 @@
 
 <% if end_user_signed_in? %>
     <% if mylist == nil %>
-        <%= form_with model:list, url:new_mylist_path(list.collection_id, list.track_id), method: :post, remote: true, data: {"turbolinks" => false} do |mylist| %>
+        <%= form_with model:list, url:new_mylist_path(params[:collection_id], params[:track_id]), method: :post, remote: true, data: {"turbolinks" => false} do |mylist| %>
             <%= mylist.hidden_field :track_id, value: params[:track_id] %>
             <%= mylist.hidden_field :collection_id, value: params[:collection_id] %>
             <%= mylist.submit 'MyListに追加！', class:"btn btn-outline-danger" %>
