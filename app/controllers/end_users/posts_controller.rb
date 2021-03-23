@@ -11,6 +11,11 @@ class EndUsers::PostsController < ApplicationController
 	end
 
 	def index
+		@posts = current_end_user.posts
+		current_end_user.followings.each do |following|
+			@posts += following.posts
+		end
+		@posts = @posts.sort_by{|post| post.created_at}.reverse
 	end
 
 	def show
