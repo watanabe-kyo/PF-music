@@ -17,8 +17,10 @@ class EndUsers::TracksController < ApplicationController
         end
         @searchs = Kaminari.paginate_array(@searchs).page(params[:page]).per(15)
 
-
-
+        device = request.env["HTTP_USER_AGENT"]
+        if(device.include?('Mobile') || device.include?('Android'))
+            render :mobile_search
+        end
     end
 
     def show
