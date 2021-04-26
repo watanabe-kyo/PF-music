@@ -1,6 +1,7 @@
 <% if end_user_signed_in? %>
 
-	<table class="table">
+
+	<table class="table sticky-sidebar">
 		<tbody>
 			<tr>
 				<th>
@@ -45,6 +46,8 @@
 						<%= post.text_area :tweet, class:"rounded container-fluid", placeholder: 'Tweetを入力しよう！' %><br>
 						<%= post.submit '投稿', class: "btn btn-light container-fluid" %>
 					<% end %>
+				</th>
+			</tr>
 		</tbody>
 	</table>
 <% else %>

@@ -22,6 +22,10 @@
  .sticky-top {
  }
 
+ .side-bar {
+ 	position: sticky;
+ }
+
  .top-image {
  	height: 100vh;
 	background: image-url('guitar.jpg');
@@ -47,9 +51,6 @@
  	width: 20vw;
  }
 
- .color {
- 	background: linear-gradient(to right, #8b4513 0%, #8b4513 28%, #d2b48c 28%, #d2b48c 100%);
- }
 
 .mb-5vh {
 	margin-bottom: 5vh;
@@ -57,4 +58,20 @@
 
 .mr-3vw {
 	margin-right: 3vw;
+}
+
+@media screen and (min-width: 768px) {
+	.color {
+		background: linear-gradient(to right, #8b4513 0%, #8b4513 28%, #d2b48c 28%, #d2b48c 100%);
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.color {
+		background: #d2b48c;
+	}
+	.nav-btn {
+		width: 50vh;
+		margin: 1vh auto;
+	}
 }

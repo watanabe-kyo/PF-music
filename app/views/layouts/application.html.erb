@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PFMusic</title>
+    <title>MyMusic</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -24,19 +24,19 @@
     <div class="collapse navbar-collapse" id="navbarToggler">
       <% if end_user_signed_in? %>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active"> <%= link_to "HOME", root_path, class:"btn btn-outline-warning" %></li>
-            <li class="nav-item"> <%= link_to "ABOUT", about_path, class:"btn btn-outline-warning" %> </li>
+            <li class="nav-item active"> <%= link_to "HOME", root_path, class:"btn btn-outline-warning nav-btn" %></li>
+            <li class="nav-item"> <%= link_to "ABOUT", about_path, class:"btn btn-outline-warning nav-btn" %> </li>
 
-            <li class="nav-item"> <%= link_to "MY PAGE", end_user_path(current_end_user), class:"btn btn-outline-warning" %></li>
+            <li class="nav-item"> <%= link_to "MY PAGE", end_user_path(current_end_user), class:"btn btn-outline-warning nav-btn" %></li>
 
 
-            <li class="nav-item"> <%= link_to "MY LIST", mylist_path(current_end_user), class:"btn btn-outline-warning" %> </li>
+            <li class="nav-item"> <%= link_to "MY LIST", mylist_path(current_end_user), class:"btn btn-outline-warning nav-btn" %> </li>
 
-            <li class="nav-item"> <%= link_to "TWEET", posts_path, class:"btn btn-outline-warning" %> </li>
+            <li class="nav-item"> <%= link_to "TWEET", posts_path, class:"btn btn-outline-warning nav-btn" %> </li>
 
-            <li class="nav-item"> <%= link_to "LOG OUT", destroy_end_user_session_path, method: :delete, class:"btn btn-outline-warning" %></li>
+            <li class="nav-item"> <%= link_to "LOG OUT", destroy_end_user_session_path, method: :delete, class:"btn btn-outline-warning nav-btn" %></li>
 
-            <li class="nav-item"><p class="text-light ml-10vw width-20vw"><b>ようこそ、<%= current_end_user.nickname %>さん！</b></p></li>
+            <li class="nav-item"><p class="text-light ml-10vw width-20vw nav-btn"><b>ようこそ、<%= current_end_user.nickname %>さん！</b></p></li>
         </ul>
       	<%= form_with url: tracks_search_path, method: :get, local: true do |search| %>
       	  <%= search.text_field :term, class:"border border-warning rounded" %>
@@ -44,10 +44,10 @@
       	<% end %>
       <% else %>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active"> <%= link_to "HOME", root_path, class:"btn btn-outline-warning" %></li>
-            <li class="nav-item"> <%= link_to "ABOUT", about_path, class:"btn btn-outline-warning" %> </li>
-            <li class="nav-item"> <%= link_to "SIGN UP", new_end_user_registration_path, class:"btn btn-outline-warning" %> </li>
-            <li class="nav-item"> <%= link_to "LOG IN", new_end_user_session_path, class:"btn btn-outline-warning" %> </li>
+            <li class="nav-item active"> <%= link_to "HOME", root_path, class:"btn btn-outline-warning nav-btn" %></li>
+            <li class="nav-item"> <%= link_to "ABOUT", about_path, class:"btn btn-outline-warning nav-btn" %> </li>
+            <li class="nav-item"> <%= link_to "SIGN UP", new_end_user_registration_path, class:"btn btn-outline-warning nav-btn" %> </li>
+            <li class="nav-item"> <%= link_to "LOG IN", new_end_user_session_path, class:"btn btn-outline-warning nav-btn" %> </li>
             <!--             <li class="nav-item"> <%#= link_to "Twitterでログイン", "/auth/twitter", class:"btn btn-outline-warning" %></li> -->        </ul>
         <%= form_with url: tracks_search_path, method: :get, local: true do |search| %>
           <%= search.text_field :term, class:"border border-warning rounded" %>

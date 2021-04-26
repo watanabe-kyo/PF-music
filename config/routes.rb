@@ -5,7 +5,7 @@ Rails.application.routes.draw do
         registrations: 'end_users/registrations',
         passwords: 'end_users/passwords'
     }
-    root to: "home#top"
+    root "home#top"
 
     get "/about" => "home#about"
     get '/auth/:provider/callback', to: 'twitters#create'

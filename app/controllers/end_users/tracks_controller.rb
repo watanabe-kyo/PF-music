@@ -12,13 +12,15 @@ class EndUsers::TracksController < ApplicationController
             :lang    => 'ja_jp',
             :limit  => '100000000000000000000'
             ).each do |item|
-            p item
-            print("#{item['artistName']},#{item['trackName']}\n")
-        end
+                p item
+                # print("#{item['artistName']},#{item['trackName']}\n")
+            end
         @searchs = Kaminari.paginate_array(@searchs).page(params[:page]).per(15)
 
-
-
+        device = request.env["HTTP_USER_AGENT"]
+        if(device.include?('Mobile') || device.include?('Android'))
+            render :mobile_search
+        end
     end
 
     def show
