@@ -24,12 +24,11 @@ class EndUser < ApplicationRecord
 
   def unfollow(other_end_user)
     relationship = self.relationships.find_by(follow_id: other_end_user.id) # フォローしているユーザーを探す
-    relationship.destroy if relationship # フォローしていれば（relationshipが存在すれば）relationshipを削除（フォローを外す）
+    relationship.destroy if relationship # フォローして入れば（relationshipが存在すれば）relationshipを削除（フォローを外す）
   end
 
   def following?(other_end_user)
-    self.followings.include?(other_end_user) # 自分がフォローしているユーザーにほかのユーザーがいるかどうか
-                                             # 要はフォローしているユーザーかどうか
+    self.followings.include?(other_end_user) #
   end
 
   def self.search(search)
